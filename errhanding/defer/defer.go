@@ -12,6 +12,12 @@ func tryDefer() {
 	defer fmt.Println(1)
 	defer fmt.Println(2)
 	fmt.Println(3)
+	for i := 0; i < 100; i++ {
+		defer fmt.Println(i)
+		if i == 30 {
+			panic("printed too many")
+		}
+	}
 	panic("error")
 	return
 }
